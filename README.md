@@ -1,5 +1,5 @@
 # VirGO: Viral Genome Submission File Orchestration
-Created for non-flu, non-cov2 viral genome assembly submission to NCBI/Genbank. 
+Created for non-flu, non-cov2 viral genome assembly submission prep for NCBI/Genbank. 
 
 Nextflow pipeline orchestrating:
 - `VADR` annotation
