@@ -1,0 +1,33 @@
+
+nf-seqsender-test/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets
+.Renviron
+.env
+.env.*
+*.pem
+*.key
+*token*
+*secret*
+
+# Nextflow
+.nextflow*
+work/
+trace*.txt
+timeline*.html
+report*.html
+dag*.png
+
+# Logs / outputs
+*.log
+logs/
+results/
+output/
+assemblies/
+*.zip
