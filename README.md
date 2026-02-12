@@ -2,9 +2,9 @@
 Created for non-flu, non-cov2 viral genome assembly submission prep for NCBI/Genbank. 
 
 Nextflow pipeline orchestrating:
-- `SeqSender` fasta+metadata file validation and .src, .sbt file generation.
-- `VADR` annotation
-- `tbl2asn` .sqn file generation 
+- `SeqSender` fasta+metadata file validation and .src + .sbt file generation, optional automated Biosample submission over FTP
+- `VADR` annotation and optional trimming terminal N's
+- `tbl2asn` submission-ready .sqn file generation 
 
 Initial baseline commit includes:
 - main.nf
