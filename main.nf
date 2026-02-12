@@ -33,7 +33,6 @@ process SEQSENDER {
   script:
   """
   bash /seqsender/seqsender-kickoff submit \
-    --test \
     -n -b \
     --organism ${params.organism} \
     --submission_name ${params.submission_name} \
