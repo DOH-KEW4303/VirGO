@@ -1,3 +1,7 @@
+
+<img width="546" height="264" alt="ChatGPT Image Feb 11, 2026, 03_30_32 PM" src="https://github.com/user-attachments/assets/7b9ff496-d49d-44c7-931a-f0aecbb67d58" />
+
+
 # VirGO: Viral Genome Submission File Orchestration
 Created for non-flu, non-cov2 viral genome assembly submission prep for NCBI/Genbank. 
 
