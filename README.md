@@ -6,9 +6,29 @@ Nextflow pipeline orchestrating:
 - `VADR` annotation and optional trimming terminal N's
 - `tbl2asn` submission-ready .sqn file generation 
 
-Initial baseline commit includes:
-- main.nf
-- nextflow.config
+```mermaid
+flowchart TB
+  subgraph " "
+    subgraph params
+      v2["metadata"]
+      v0["submission_name"]
+      v5["vadr_models"]
+      v1["config"]
+      v3["fasta"]
+    end
+    v7([SEQSENDER])
+    v9([VADR])
+    v11([TABLE2ASN])
+    v1 --> v7
+    v2 --> v7
+    v3 --> v7
+    v5 --> v9
+    v7 --> v9
+    v7 --> v11
+    v9 --> v11
+  end
+
+```
 
 Currently in use for Measles virus, WNV, flexible to inlcude other viruses which have VADR model representation. 
 
