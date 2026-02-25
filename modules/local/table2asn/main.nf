@@ -1,5 +1,6 @@
 process TABLE2ASN {
   tag "${params.submission_name}"
+  container params.table2asn_image
   publishDir "${params.outdir}/final", mode: 'copy'
 
   input:
