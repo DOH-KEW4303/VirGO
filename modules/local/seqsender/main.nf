@@ -8,10 +8,15 @@ process SEQSENDER {
     path metadata_file
     path fasta_file
 
+  
   output:
-    path "${params.submission_name}/submission_files/GENBANK/sequence.fsa", emit: seq_fsa
-    path "${params.submission_name}/submission_files/GENBANK/source.src",  emit: src
-    path "${params.submission_name}/submission_files/GENBANK/authorset.sbt", emit: auth
+  // full submission outputs BIOSAMPLE+GENBANK
+  path "${params.submission_name}", emit: submission_dir
+
+  // files used downstream for VADR+table2asn
+  path "${params.submission_name}/submission_files/GENBANK/sequence.fsa", emit: seq_fsa
+  path "${params.submission_name}/submission_files/GENBANK/source.src",  emit: src
+  path "${params.submission_name}/submission_files/GENBANK/authorset.sbt", emit: auth
 
   script:
   """
