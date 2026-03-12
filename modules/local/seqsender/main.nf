@@ -1,6 +1,6 @@
 process SEQSENDER {
   tag "${params.submission_name}"
-  container 'ghcr.io/cdcgov/seqsender:v1.3.9'
+  container 'ghcr.io/cdcgov/seqsender:v1.3.91'
   publishDir "${params.outdir}/10_seqsender", mode: 'copy'
 
   input:
@@ -20,12 +20,17 @@ process SEQSENDER {
 
   script:
   """
+  set -euo pipefail
+
+  BASE="${params.outdir}/10_seqsender"
+  mkdir -p "\$BASE"
+
   bash /seqsender/seqsender-kickoff submit \
     -n -b \
     --organism ${params.organism} \
-    --submission_name ${params.submission_name} \
-    --submission_dir \$PWD \
-    --config_file \$(realpath ${config_file}) \
+    --submission_name "${params.submission_name}" \
+    --submission_dir "\$BASE" \
+    --config_file "${params.config}" \
     --metadata_file \$(realpath ${metadata_file}) \
     --fasta_file \$(realpath ${fasta_file}) \
     --test
