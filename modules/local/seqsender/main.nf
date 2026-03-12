@@ -1,6 +1,6 @@
 process SEQSENDER {
   tag "${params.submission_name}"
-  container 'ghcr.io/cdcgov/seqsender:v1.3.9'
+  container 'ghcr.io/cdcgov/seqsender:v1.3.91'
   publishDir "${params.outdir}/10_seqsender", mode: 'copy'
 
   input:
