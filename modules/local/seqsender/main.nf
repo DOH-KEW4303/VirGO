@@ -12,6 +12,7 @@ process SEQSENDER {
   output:
   // full submission outputs BIOSAMPLE+GENBANK
   path "${params.submission_name}", emit: submission_dir
+  path "submission_log.csv", emit: submission_log
 
   // files used downstream for VADR+table2asn
   path "${params.submission_name}/submission_files/GENBANK/sequence.fsa", emit: seq_fsa
@@ -22,17 +23,16 @@ process SEQSENDER {
   """
   set -euo pipefail
 
-  BASE="${params.outdir}/10_seqsender"
-  mkdir -p "\$BASE"
-
   bash /seqsender/seqsender-kickoff submit \
     -n -b \
     --organism ${params.organism} \
     --submission_name "${params.submission_name}" \
-    --submission_dir "\$BASE" \
+    --submission_dir "\$PWD" \
     --config_file "${params.config}" \
     --metadata_file \$(realpath ${metadata_file}) \
     --fasta_file \$(realpath ${fasta_file}) \
     --test
+  
+
   """
 }

@@ -21,7 +21,7 @@ workflow VIRGO {
   do_sync = (params.submit_biosample && !params.dry_run)
 
   if (do_sync) {
-    synced  = SYNC_BIOSAMPLE_STATUS(seq.submission_dir)
+    synced  = SYNC_BIOSAMPLE_STATUS(seq.submission_dir, config_ch)
     addsamn = ADD_SAMN_SRC(seq.submission_dir, seq.src, synced.done)
 
     TABLE2ASN(seq.seq_fsa, addsamn.src, seq.auth, vadr.vadr_dir)
