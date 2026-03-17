@@ -17,16 +17,17 @@ workflow VIRGO {
 
   seq  = SEQSENDER(config_ch, metadata_ch, fasta_ch)
   vadr = VADR(seq.seq_fsa, models_ch)
-
+  
   do_sync = (params.submit_biosample && !params.dry_run)
 
   if (do_sync) {
-    synced  = SYNC_BIOSAMPLE_STATUS(seq.submission_dir, config_ch)
-    addsamn = ADD_SAMN_SRC(seq.submission_dir, seq.src, synced.done)
+  synced  = SYNC_BIOSAMPLE_STATUS(seq.submission_dir, config_ch)
+  addsamn = ADD_SAMN_SRC(seq.submission_dir, seq.src, synced.done)
 
-    TABLE2ASN(seq.seq_fsa, addsamn.src, seq.auth, vadr.vadr_dir)
+  TABLE2ASN(seq.seq_fsa, addsamn.src, seq.auth, vadr.vadr_dir)
 } else {
-    TABLE2ASN(seq.seq_fsa, seq.src, seq.auth, vadr.vadr_dir)
+  TABLE2ASN(seq.seq_fsa, seq.src, seq.auth, vadr.vadr_dir)
+}
 }
 
 }
