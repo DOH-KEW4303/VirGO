@@ -57,6 +57,17 @@ These are automatically pulled during execution.
   
 ⚠️ Metadata must currently be provided in a SeqSender-compatible form. See `templates/seq_metadata.csv` for a downloadable csv template. 
 
+## Download VADR models
+
+Official VADR repository:
+https://github.com/ncbi/vadr
+
+Additional models (inluding Measles virus) can be found as developed by the Greninger Lab:
+https://github.com/greninger-lab
+
+⚠️Model bundles should be downloaded prior to running the VirGO pipeline.
+
+
 ## Config file
 
 VirGO requires a SeqSender configuration file.
