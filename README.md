@@ -118,11 +118,12 @@ Run the command to initiate the workflow, insterting the appropriate paths to yo
 -profile docker \
 --submission_name MeV_VSP010 \
 --config seqsender_config2025.yaml \
-
-### Step 3
-Final output .sqn files are located in `results/final/`. This file should be emailed to `gb-sub@ncbi.com` for Genbank processing. 
-
 --metadata /path/to/metadata/file/your_meta.csv \
 --fasta /path/to/fasta/file/your_fasta.fa \
 --organism OTHER \
 --vadr_models /path/to/vadr-model/folder`
+
+### Step 3
+Final output .sqn files are located in `results/final/`. This file should be emailed to `gb-sub@ncbi.com` for Genbank processing. 
+
+
