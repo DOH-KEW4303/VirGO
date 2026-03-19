@@ -3,7 +3,7 @@
 
 
 # VirGO: Viral Genome Submission File Orchestration
-Created for non-flu, non-cov2 viral genome assembly submission prep for NCBI/Genbank. 
+Created to streamline viral genome submission to NCBI for organisms that are not supported for fully automated submissions. Currently supports submission to BioSample and Genbank with SRA capacity in development. Tested with Measles virus and West Nile virus and can support any viral pathogen with VADR model representation. It is not designed for submission of influenza A, influenza B, or SARS-CoV-2 as these organisms are supported for fully automated submissions and do not require genome annotation. `Seqsender` is an excellent tool for submission of these pathogens. 
 
 Nextflow pipeline orchestrating:
 - `SeqSender` fasta+metadata file validation and .src + .sbt file generation, optional automated Biosample submission over FTP
@@ -33,11 +33,67 @@ flowchart TB
   end
 
 ```
-
-Currently in use for Measles virus, WNV, flexible to inlcude other viruses which have VADR model representation. 
+---
 
 ## Requirements
+- Nextflow (DSL2)
+- Docker
+- NCBI account credentials 
 
+VirGO uses containerized tools (SeqSender, VADR, table2asn).  
+These are automatically pulled during execution.
+
+---
+
+## Inputs
+
+### Required
+
+- Metadata CSV (`--metadata`)
+- Single or multi-FASTA file (`--fasta`)
+- VADR models (`--vadr_models`)
+- SeqSender config file (`--config`)
+  
+⚠️ Metadata must currently be provided in a SeqSender-compatible form. See `templates/seq_metadata.csv` for a downloadable csv template. 
+
+## Config file
+
+VirGO requires a SeqSender configuration file.
+
+### Downloadable template
+
+`templates/seqsender_config_template.yaml`
+
+### Notes
+
+- update NCBI credentials, paths and submission-specific settings before running
+- values must be appropriate for your environment
+- this file is required for pipeline execution
+
+---
+## Parameters
+
+### Required
+
+| Parameter | Description |
+|----------|------------|
+| `--submission_name` | Name for this run (used in output directories) |
+| `--organism` | Organism type (e.g., FLU, OTHER) |
+| `--vadr_models | Path to VADR model for specific pathogen |
+| `--metadata | Path to metadata CSV file |
+| `--fasta | Path to single or multi-fasta file (.fa) |
+| `--config` | SeqSender configuration file |
+
+---
+
+### Optional
+
+| Parameter | Default | Description |
+|----------|--------|------------|
+| `--submit_biosample` | true | Submit BioSample records over FTP |
+| `--dry_run` | false | Run without live submission |
+
+---
 ## Usage
 
 ### Step 1
