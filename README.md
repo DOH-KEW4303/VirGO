@@ -3,7 +3,7 @@
 
 
 # VirGO: Viral Genome Submission File Orchestration
-Created to streamline viral genome submission to NCBI for organisms that are not supported for fully automated submissions. Currently supports submission to BioSample and Genbank with SRA capacity in development. Tested with Measles virus and West Nile virus and can support any viral pathogen with VADR model representation. It is not designed for submission of influenza A, influenza B, or SARS-CoV-2 as these organisms are supported for fully automated submissions and do not require genome annotation. `Seqsender` is an excellent tool for submission of these pathogens. 
+Created to streamline viral genome submission to NCBI for organisms that are not supported for fully automated submissions. Currently supports submission to BioSample and Genbank with SRA capacity in development. Tested with Measles virus and West Nile virus and can support any viral pathogen with VADR model representation. It is not designed for submission of influenza A, influenza B, or SARS-CoV-2 as these organisms are supported for fully automated submissions and do not require user-provided genome annotation. `Seqsender` is an excellent tool for submission of these pathogens. 
 
 Nextflow pipeline orchestrating:
 - `SeqSender` fasta+metadata file validation and .src + .sbt file generation, optional automated Biosample submission over FTP
