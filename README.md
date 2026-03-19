@@ -79,9 +79,9 @@ VirGO requires a SeqSender configuration file.
 |----------|------------|
 | `--submission_name` | Name for this run (used in output directories) |
 | `--organism` | Organism type (e.g., FLU, OTHER) |
-| `--vadr_models | Path to VADR model for specific pathogen |
-| `--metadata | Path to metadata CSV file |
-| `--fasta | Path to single or multi-fasta file (.fa) |
+| `--vadr_models` | Path to VADR model for specific pathogen |
+| `--metadata` | Path to metadata CSV file |
+| `--fasta` | Path to single or multi-fasta file (.fa) |
 | `--config` | SeqSender configuration file |
 
 ---
