@@ -2,7 +2,7 @@
 <img width="546" height="264" alt="ChatGPT Image Feb 11, 2026, 03_30_32 PM" src="https://github.com/user-attachments/assets/7b9ff496-d49d-44c7-931a-f0aecbb67d58" />
 
 
-# VirGO: Viral Genome Submission File Orchestration
+# VirGO: Viral Genome (Submission File) Orchestration
 Created to streamline viral genome submission to NCBI for organisms that are not supported for fully automated submissions. Currently supports submission to BioSample and Genbank with SRA capacity in development. Tested with Measles virus and West Nile virus and can support any viral pathogen with VADR model representation. It is not designed for submission of influenza A, influenza B, or SARS-CoV-2 as these organisms are supported for fully automated submissions and do not require user-provided genome annotation. `Seqsender` is an excellent stand-alone tool for submission of these pathogens:
 https://github.com/CDCgov/seqsender/tree/master
 
