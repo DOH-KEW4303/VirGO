@@ -30,8 +30,7 @@ process SEQSENDER {
     --submission_dir "\$PWD" \
     --config_file "${params.config}" \
     --metadata_file \$(realpath ${metadata_file}) \
-    --fasta_file \$(realpath ${fasta_file}) \
-    --test
+    --fasta_file \$(realpath ${fasta_file}) 
   
 
   """

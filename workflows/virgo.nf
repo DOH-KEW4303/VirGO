@@ -27,10 +27,9 @@ workflow VIRGO {
   TABLE2ASN(seq.seq_fsa, addsamn.src, seq.auth, vadr.vadr_dir)
 } else {
   TABLE2ASN(seq.seq_fsa, seq.src, seq.auth, vadr.vadr_dir)
-}
+  }
 }
 
-}
 
 
 
