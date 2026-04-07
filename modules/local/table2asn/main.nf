@@ -17,13 +17,24 @@ process TABLE2ASN {
   """
   set -euo pipefail
 
-  PASS_TBL=\$(ls ${vadr_dir}/*.vadr.pass.tbl | head -n 1)
+  PASS_TBL=\$(ls vadr_out/*.vadr.pass.tbl 2>/dev/null | head -n 1 || true)
+  FAIL_TBL=\$(ls vadr_out/*.vadr.fail.tbl 2>/dev/null | head -n 1 || true)
 
+if [[ -n "\${PASS_TBL}" && -s "\${PASS_TBL}" ]]; then
+    echo "Using VADR pass table: \${PASS_TBL}"
+    TBL="\${PASS_TBL}"
+elif [[ -n "\${FAIL_TBL}" && -s "\${FAIL_TBL}" ]]; then
+    echo "PASS table empty or missing; using FAIL table instead: \${FAIL_TBL}"
+    TBL="\${FAIL_TBL}"
+else
+    echo "ERROR: No non-empty VADR annotation table found."
+    exit 1
+fi
 
   table2asn \
     -t ${auth} \
     -i ${seq_fsa} \
-    -f \$PASS_TBL \
+    -f "\${TBL}" \
     -src-file ${src} \
     -o ${params.submission_name}.sqn \
     -V vb \
