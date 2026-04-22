@@ -90,7 +90,6 @@ VirGO requires a SeqSender configuration file.
 | Parameter | Description |
 |----------|------------|
 | `--submission_name` | Name for this run (used in output directories) |
-| `--organism` | Organism type (e.g., FLU, OTHER) |
 | `--vadr_models` | Path to VADR model for specific pathogen |
 | `--vadr_mkey` | Name of VADR key for specific pathogen (ie `flavi`, `mev`)
 | `--metadata` | Path to metadata CSV file |
@@ -121,7 +120,6 @@ Run the command to initiate the workflow, insterting the appropriate paths to yo
 --config seqsender_config2025.yaml \
 --metadata /path/to/metadata/file/your_meta.csv \
 --fasta /path/to/fasta/file/your_fasta.fa \
---organism OTHER \
 --vadr_mkey mev \
 --vadr_models /path/to/vadr-model/folder`
 
